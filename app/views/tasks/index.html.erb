@@ -1,0 +1,27 @@
+<div class="container">
+<!-- <h1>Tasks</h1> -->
+  <div class="card">
+    <h5 class="card-header">To-Do List</h5>
+    <div class="card-body">
+      <p class="card-text">
+        <ul style="list-style: none; padding-left: 0;">
+          <% @tasks.each do |task| %>
+          <% if task.completed == true %>
+              <li><%= link_to task.title, task_path(task)%><%= link_to " - 🗑", task_path(task), method: :delete, data: {confirm: 'Are you sure?'}%>  ✓</li>
+            <% elsif task.completed == false %>
+              <li><%= link_to task.title, task_path(task)%><%= link_to " - 🗑", task_path(task), method: :delete, data: {confirm: 'Are you sure?'}%>  𝘅</li>
+          <% end %>
+        <% end %>
+        </ul>
+      </p>
+      <div style="color: white; border-top: 0.5px solid grey; padding-top: 5px;">
+      <%= link_to "+ add a task", new_task_path  %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
